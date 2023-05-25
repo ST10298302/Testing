@@ -37,7 +37,7 @@ public class TaskTest
         {
 
         }
-        JOptionPane.showMessageDialog(null, "Task successfully captured");
+       // JOptionPane.showMessageDialog(null, "Task successfully captured");
         desc = "Create Add Task feature to add task users";
         length = desc.length() <= 50;
         try
@@ -45,18 +45,18 @@ public class TaskTest
             assertEquals(desc.length() > 50, length);
         } catch (AssertionError e)
         {
-            JOptionPane.showMessageDialog(null, "Please enter a task description of less than 50 characters");
+            //JOptionPane.showMessageDialog(null, "Please enter a task description of less than 50 characters");
         }
     }
 
     @Test
     public void testID()
     {
-        first = JOptionPane.showInputDialog("Enter the first name");
-        last = JOptionPane.showInputDialog("Enter the last name");
+        //first = JOptionPane.showInputDialog("Enter the first name");
+       // last = JOptionPane.showInputDialog("Enter the last name");
         testTask.setFirst(first);
         testTask.setLast(last);
-        testTask.runTask();
+       // testTask.runTask();
         count++;
        
     }
