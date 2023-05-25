@@ -30,33 +30,40 @@ jobs:
         run: ls
      # Compiles classes to test 
       - name: compile classes
-        working-directory: ./src/main/java/ST10298302
-        run: javac -cp "../../../testresources/junit-platform-console-standalone-1.6.0.jar"  ./Login.java  "../../../test/java/ST10298302/LoginTest.java"
+        working-directory: ./src/
+        run: javac -cp "../testresources/junit-platform-console-standalone-1.6.0.jar"   ./ST10298302/Login.java ./ST10298302/Task.java ./ST10298302/UseClass.java  "../test/ST10298302/LoginTest.java" "../test/ST10298302/TaskTest.java"
 
     # list contents of src to verify that classess compiled 
       - name: List contents of src directory after compile
-        working-directory: ./src/main/java/ST10298302
+        working-directory: ./src/ST10298302
         run: ls
 
 
        # copy compiled classes to test directory 
       - name : copy compiled classes to testresources directory 
-        working-directory: ./src/main/java/ST10298302
-        run: cp -t  "../../test/java/ST10298302" Login.class
+        working-directory: ./src/ST10298302
+        run: cp -t  "../../test/ST10298302" Login.class Task.class
 
         #copy compiled tests 
       - name : copy compiled Test classes to testresources directory 
         working-directory: ./test/ST10298302
-        run: cp -t  "../../testresources/" Login.class 
+        run: cp -t  "../../testresources/" LoginTest.class TaskTest.class
 
         # list contents or directory
       - name: List contents test package
-        working-directory: ./test/java/ST10298302/Login
+        working-directory: ./test/ST10298302
         run: ls
 
-        #run Message Class tests and output report 
+        #run Login Class tests and output report 
       - name: run Messages Class tests and create report 
         working-directory: ./test
         run: |
          ls
          java -jar  "../testresources/junit-platform-console-standalone-1.6.0.jar" -cp "." --select-class  ST10298302.LoginTest
+         
+        #run Task Class tests and output report 
+      - name: run Messages Class tests and create report 
+        working-directory: ./test
+        run: |
+         java -jar  "../testresources/junit-platform-console-standalone-1.6.0.jar" -cp "." --select-class  ST10298302.TaskTest
+         
