@@ -52,10 +52,10 @@ public class TaskTest
     @Test
     public void testID()
     {
-        //first = JOptionPane.showInputDialog("Enter the first name");
+        // first = JOptionPane.showInputDialog("Enter the first name");
        // last = JOptionPane.showInputDialog("Enter the last name");
-        testTask.setFirst(first);
-        testTask.setLast(last);
+        // testTask.setFirst(first);
+        // testTask.setLast(last);
        // testTask.runTask();
         count++;
        
